@@ -1,0 +1,16 @@
+E:\Programs\AntiDiscrete\AntiDiscrete\obj\x86\Debug\WindowsFormsApplication1.Properties.Resources.resources
+E:\Programs\AntiDiscrete\AntiDiscrete\obj\x86\Debug\AntiDiscrete.csproj.GenerateResource.Cache
+E:\Programs\AntiDiscrete\AntiDiscrete\bin\Debug\AntiDiscrete.exe
+E:\Programs\AntiDiscrete\AntiDiscrete\bin\Debug\AntiDiscrete.pdb
+E:\Programs\AntiDiscrete\AntiDiscrete\obj\x86\Debug\AntiDiscrete.exe
+E:\Programs\AntiDiscrete\AntiDiscrete\obj\x86\Debug\AntiDiscrete.pdb
+E:\Programs\AntiDiscrete\AntiDiscrete\obj\x86\Debug\AntiDiscrete.csprojResolveAssemblyReference.cache
+E:\Programs\AntiDiscrete\AntiDiscrete\obj\x86\Debug\WindowsFormsApplication1.Form2.resources
+E:\Programs\AntiDiscrete\AntiDiscrete\obj\x86\Debug\WindowsFormsApplication1.AboutBox.resources
+E:\Programs\AntiDiscrete\AntiDiscrete\obj\x86\Debug\WindowsFormsApplication1.AddBasisForm.resources
+E:\Programs\AntiDiscrete\AntiDiscrete\bin\Debug\Doc.xml
+E:\Programs\AntiDiscrete\AntiDiscrete\obj\x86\Debug\WindowsFormsApplication1.MainForm.resources
+E:\Programs\AntiDiscrete\AntiDiscrete\bin\Debug\AntiDiscrete.exe.manifest
+E:\Programs\AntiDiscrete\AntiDiscrete\bin\Debug\AntiDiscrete.application
+E:\Programs\AntiDiscrete\AntiDiscrete\obj\x86\Debug\AntiDiscrete.exe.manifest
+E:\Programs\AntiDiscrete\AntiDiscrete\obj\x86\Debug\AntiDiscrete.application
