@@ -41,7 +41,10 @@ namespace WindowsFormsApplication1
                 sr.Close();
                 return true;
             }
-            catch { return false; }
+            catch (IOException exc)
+            {
+                throw new FileLoadException("File not found");
+            }
         }//LoadBasisesFromFile
         public bool LoadElementarFunctionsFromFile(string FileName)
         {
@@ -64,7 +67,10 @@ namespace WindowsFormsApplication1
                 sr.Close();
                 return true;
             }
-            catch { return false; }
+            catch (IOException exc)
+            {
+                throw new FileLoadException("File not found");
+            }
         }//LoadElementarFunctionsFromFile
         public FunctionAnalyzer()
         {

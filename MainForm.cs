@@ -70,18 +70,32 @@ namespace WindowsFormsApplication1
             {
                 Analyzer.LoadBasisesFromFile("Basises.res");
             }
-            catch
+            catch (FileLoadException exc)
             {
                 MessageBox.Show(this, "Нет необходимых файлов программы.");
+                SoluteAll.Enabled = true;
+                return;
+            }
+            catch (Exception exc)
+            {
+                MessageBox.Show(this, "Поймано исключение " + exc + " Обратитесь к автору");
+                SoluteAll.Enabled = true;
                 return;
             }
             try
             {
                 Analyzer.LoadElementarFunctionsFromFile("Functions.res");
             }
-            catch
+            catch (FileLoadException exc)
             {
                 MessageBox.Show(this, "Нет необходимых файлов программы.");
+                SoluteAll.Enabled = true;
+                return;
+            }
+            catch (Exception exc)
+            {
+                MessageBox.Show(this, "Поймано исключение " + exc + " Обратитесь к автору");
+                SoluteAll.Enabled = true;
                 return;
             }
             byte[] TT = new byte[8];
@@ -92,6 +106,7 @@ namespace WindowsFormsApplication1
             catch
             {
                 MessageBox.Show(this, "Проверьте поле ввода таблицы истинности функции!");
+                SoluteAll.Enabled = true;
                 return;
             }
             labelStatus.Text = "Идет анализ. Пожалуйста, подождите.";
