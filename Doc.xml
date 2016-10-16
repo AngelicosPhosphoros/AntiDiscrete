@@ -76,6 +76,18 @@
             the contents of this method with the code editor.
             </summary>
         </member>
+        <member name="M:WindowsFormsApplication1.Function.combine(WindowsFormsApplication1.Function,WindowsFormsApplication1.Function,WindowsFormsApplication1.Function)">
+            <summary>
+            Create new function FN, which result is same as F(a(A,B,C),b(A,B,C),c(A,B,C))
+            </summary>
+            <returns>New function</returns>
+        </member>
+        <member name="M:WindowsFormsApplication1.Function.operate(System.Byte,System.Byte,System.Byte)">
+            <summary>
+            Create new function FN, which result is same as F(a(A,B,C),b(A,B,C),c(A,B,C))
+            </summary>
+            <returns>New function</returns>
+        </member>
         <member name="M:WindowsFormsApplication1.Program.Main">
             <summary>
             The main entry point for the application.

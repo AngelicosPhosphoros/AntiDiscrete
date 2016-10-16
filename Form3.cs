@@ -27,7 +27,7 @@ namespace WindowsFormsApplication1
         private void SaveFunction(StreamWriter sw, Function F)
         {
             for (int i = 0; i < 8; i++)
-                sw.Write(F.truthTable[i]);
+                sw.Write(F.getBit(i));
             sw.WriteLine(F.mask);
         }
         private void btnAddBasis_Click(object sender, EventArgs e)

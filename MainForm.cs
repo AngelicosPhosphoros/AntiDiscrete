@@ -20,7 +20,19 @@ namespace WindowsFormsApplication1
         public MainForm()
         {
             InitializeComponent();
+            onComputationFinished += MainForm_onComputationFinished;
         }
+        private int computedThreadsCount = 0;
+        private void MainForm_onComputationFinished(object sender, ComputationEventArgs e)
+        {
+            e.textBox.Lines = e.rows;
+            computedThreadsCount++;
+            if (computedThreadsCount >= 2)
+            {
+                FinishOfWorkerThreads();
+            }
+        }
+
         public void ChangeTruthTableBox(string s)
         {
             truthTableBox.Text = s;
@@ -61,6 +73,12 @@ namespace WindowsFormsApplication1
             ElemFuncBox.Height = ElemFuncPage.Height - ElemFuncBox.Top - 15;
         }
 
+        private class ComputationEventArgs : EventArgs
+        {
+            public TextBox textBox;
+            public string[] rows;
+        }
+        private event EventHandler<ComputationEventArgs> onComputationFinished;
         
         private void SoluteAll_Click(object sender, EventArgs e)
         {
@@ -124,20 +142,31 @@ namespace WindowsFormsApplication1
             PostBox.Lines = Analyzer.PostCriteriesLines(TT, Derivatives);
             MinimFormsBox.Text = "Идет разложение";
             ElemFuncBox.Text = "Идет разложение";
-            SecondThread S = new SecondThread();
-            S.OnFinish += this.Finish_OfSecondThread;
-            System.Windows.Forms.Control.CheckForIllegalCrossThreadCalls = false;
-            Thread Second = new Thread(delegate() { S.Main(Analyzer, TT); });
-            Second.Start();
+            CheckForIllegalCrossThreadCalls = false;
+            computedThreadsCount = 0;
+            Thread elemFunc = new Thread(delegate ()
+            {
+                ComputationEventArgs args = new ComputationEventArgs();
+                args.textBox = ElemFuncBox;
+                args.rows = Analyzer.AnalyzeElementarFunctionsByThisFunction(TT);
+                onComputationFinished(this, args);
+            });
+            Thread basisesAnalyze = new Thread(delegate ()
+            {
+                ComputationEventArgs args = new ComputationEventArgs();
+                args.textBox = MinimFormsBox;
+                args.rows = Analyzer.AnalyzeInAllBasises(TT);
+                onComputationFinished(this, args);
+            });
+            elemFunc.Start();
+            basisesAnalyze.Start();
         }
-        public void Finish_OfSecondThread(string[] basisesResult, string[] elemFuncResult)
+        private void FinishOfWorkerThreads()
         {
-            MinimFormsBox.Lines = basisesResult;
-            ElemFuncBox.Lines = elemFuncResult;
             SoluteAll.Enabled = true;
             labelStatus.Text = "Анализ закончен.";
             labelStatus.ForeColor = Color.Green;
-            System.Windows.Forms.Control.CheckForIllegalCrossThreadCalls = true;
+            CheckForIllegalCrossThreadCalls = true;
         }
 
         private void btnSoluteMarix_Click(object sender, EventArgs e)
